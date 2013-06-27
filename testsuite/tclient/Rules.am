@@ -1,0 +1,13 @@
+INTERACTIVE_TESTS =			\
+	testsuite/tclient/register
+
+TESTS += $(INTERACTIVE_TESTS)
+
+EXTRA_DIST += $(INTERACTIVE_TESTS)
+
+LOG_COMPILER =			\
+	builddir='$(builddir)'	\
+	srcdir='$(srcdir)'	\
+	EXEEXT='$(EXEEXT)'	\
+	testserver=localhost	\
+	testport=13327

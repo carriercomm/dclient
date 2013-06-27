@@ -1,0 +1,15 @@
+library json {
+	sources {
+		json_reader.cpp
+		json_value.cpp
+		json_writer.cpp
+	}
+
+	extra_dist {
+		json_batchallocator.h
+	}
+
+	link {
+		adt
+	}
+}

@@ -1,0 +1,20 @@
+program tclient {
+	sources {
+		tinput_handler.cpp
+		tmain.cpp
+		tquery_handler.cpp
+		trenderer.cpp
+	}
+
+	extra_dist {
+		tinput_handler.h
+		tquery_handler.h
+		trenderer.h
+	}
+
+	link {
+		adt
+		communicator
+		-lev
+	}
+}

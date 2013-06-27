@@ -1,0 +1,5 @@
+noinst_HEADERS +=				\
+	include/dclient/widgets/inventory.h	\
+	include/dclient/widgets/map.h		\
+	include/dclient/widgets/query.h		\
+	include/dclient/widgets/stats.h

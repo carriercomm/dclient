@@ -1,0 +1,4 @@
+noinst_HEADERS +=			\
+	include/deliantra/netio/ber.h	\
+	include/deliantra/netio/int.h	\
+	include/deliantra/netio/string.h

@@ -1,0 +1,12 @@
+noinst_HEADERS +=				\
+	include/deliantra/data/constants.h	\
+	include/deliantra/data/counters.h	\
+	include/deliantra/data/fx.h		\
+	include/deliantra/data/glyph.h		\
+	include/deliantra/data/inventory.h	\
+	include/deliantra/data/item.h		\
+	include/deliantra/data/map1a.h		\
+	include/deliantra/data/map.h		\
+	include/deliantra/data/setup.h		\
+	include/deliantra/data/statistics.h	\
+	include/deliantra/data/types.h

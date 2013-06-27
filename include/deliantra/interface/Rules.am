@@ -1,0 +1,5 @@
+noinst_HEADERS +=					\
+	include/deliantra/interface/command_handler.h	\
+	include/deliantra/interface/inventory_handler.h	\
+	include/deliantra/interface/message_handler.h	\
+	include/deliantra/interface/packet_handler.h

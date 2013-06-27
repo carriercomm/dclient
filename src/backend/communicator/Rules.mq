@@ -1,0 +1,45 @@
+library communicator {
+	sources {
+		client.cpp
+		command_parser.cpp
+		communicator.cpp
+		counters.cpp
+		glyph.cpp
+		handshake_handler.cpp
+		inventory_manager.cpp
+		map.cpp
+		message_logger.cpp
+	}
+
+	extra_dist {
+		command_parser/addme_success.h
+		command_parser/addspell.h
+		command_parser/anim.h
+		command_parser/delinv.h
+		command_parser/delitem.h
+		command_parser/drawinfo.h
+		command_parser/ext.h
+		command_parser/fx.h
+		command_parser/item2.h
+		command_parser/map1a.h
+		command_parser/mapinfo.h
+		command_parser/map_scroll.h
+		command_parser/msg.h
+		command_parser/newmap.h
+		command_parser/player.h
+		command_parser/query.h
+		command_parser/replyinfo.h
+		command_parser/setup.h
+		command_parser/stats.h
+		command_parser/upditem.h
+		command_parser/updspell.h
+		command_parser/version.h
+		handshake_handler/version.h
+	}
+
+	link {
+		adt
+		json
+		-lev
+	}
+}

@@ -1,0 +1,27 @@
+library ndk {
+	sources {
+		align.cpp
+		application.cpp
+		button.cpp
+		edit.cpp
+		frame.cpp
+		input.cpp
+		keymap.cpp
+		label.cpp
+		menu.cpp
+		pad.cpp
+		panel.cpp
+		pen.cpp
+		terminal.cpp
+		text.cpp
+		transport.cpp
+		window.cpp
+	}
+
+	link {
+		adt
+		-lpanelw
+		-lmenuw
+		-lncursesw
+	}
+}

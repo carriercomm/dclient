@@ -1,0 +1,94 @@
+#!/usr/bin/env perl
+
+use common::sense;
+
+use Expect;
+
+use constant {
+   TIMEOUT     => 10,
+   USERS       =>  1,
+   STAT_ROLLS  =>  2,
+   RACE_ROLLS  =>  2,
+};
+
+sub expect {
+   my $exp = shift;
+   die "unexpected response or timeout"
+      unless $exp->expect (TIMEOUT, @_)
+}
+
+sub process {
+   my $exp = shift;
+   $exp->send ("$_[0]\n")
+}
+
+
+my @exp;
+
+for my $u (0 .. USERS - 1) {
+   $exp[$u] = new Expect;
+}
+
+for my $exp (@exp) {
+   $exp->spawn ("$ENV{builddir}/tclient", $ENV{testserver}, $ENV{testport});
+}
+
+for my $u (0 .. USERS - 1) {
+   expect $exp[$u], "What is your name?";
+   process $exp[$u], "/reply testuser$u";
+}
+
+for my $exp (@exp) {
+   expect $exp, "What is your password?";
+   process $exp, "/reply testpass";
+}
+
+for my $exp (@exp) {
+   expect $exp, "Please type your password again.";
+   process $exp, "/reply testpass";
+}
+
+for my $exp (@exp) {
+   for (0 .. STAT_ROLLS) {
+      expect $exp, "Roll again";
+      process $exp, "/reply y";
+   }
+   expect $exp, "Roll again";
+   process $exp, "/reply n";
+}
+
+for my $exp (@exp) {
+   for (0 .. RACE_ROLLS) {
+      expect $exp, "Press any key to change outlook";
+      process $exp, "/reply n";
+   }
+   expect $exp, "Press any key to change outlook";
+   process $exp, "/reply d";
+}
+
+for my $exp (@exp) {
+   expect $exp, "Press 'f' to become female";
+   process $exp, "/reply m";
+}
+
+for my $exp (@exp) {
+   expect $exp, "Welcome to Deliantra!";
+   # dump-map is immediate, so we don't need to expect anything
+   # just look at the log if you are interested
+   process $exp, "!dump-map";
+   process $exp, "quit_character";
+}
+
+for my $exp (@exp) {
+   expect $exp, "PERMANENTLY";
+   process $exp, "/reply y";
+}
+
+for my $exp (@exp) {
+   expect $exp, "Ok, quitting";
+   expect $exp, "EOF from server";
+}
+
+for my $exp (@exp) {
+   $exp->soft_close
+}

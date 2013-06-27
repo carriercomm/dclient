@@ -1,0 +1,16 @@
+program testsuite/json_test -> check {
+	test { testsuite/json_test }
+
+	sources {
+		jsontest.cpp
+		jsontest_main.cpp
+	}
+
+	extra_dist {
+		jsontest.h
+	}
+
+	link {
+		json
+	}
+}

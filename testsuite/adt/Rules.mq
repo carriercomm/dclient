@@ -1,0 +1,7 @@
+program testsuite/test_rebased_vector -> check {
+	test { testsuite/test_rebased_vector }
+
+	sources {
+		test_rebased_vector.cpp
+	}
+}

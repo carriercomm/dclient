@@ -1,0 +1,22 @@
+program dclient {
+	sources {
+		widgets/inventory_widget.cpp
+		widgets/map_widget.cpp
+		widgets/query_widget.cpp
+		widgets/stats_widget.cpp
+		input_handler.cpp
+		main.cpp
+		query_handler.cpp
+		render_glyph.cpp
+		renderer.cpp
+		widgets.cpp
+	}
+
+	link {
+		adt
+		communicator
+		json
+		ndk
+		-lev
+	}
+}

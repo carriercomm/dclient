@@ -1,0 +1,19 @@
+extern "c++"
+
+cppflags {
+	-I/usr/include/ncursesw
+	-isystem /usr/include/ncursesw
+	-include compiler.h
+	-DEV_COMPAT3=0
+}
+
+cxxflags {
+	-pipe
+	-O0
+	-ggdb3
+	-Wall
+	-pedantic
+	-std=c++0x
+	-fno-inline
+	-Wno-vla
+}

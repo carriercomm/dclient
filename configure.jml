@@ -1,0 +1,9 @@
+project {
+	name: "DClient"
+	version: "0.1"
+	contact: "dclient@xinutec.org"
+
+	lang: "C++"
+
+	output;
+}

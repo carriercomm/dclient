@@ -1,0 +1,2 @@
+EXTRA_DIST += configure.jml
+DISTCLEANFILES = curses.log client.log
